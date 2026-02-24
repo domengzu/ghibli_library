@@ -64,3 +64,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Dotenv for managing environment variables
+gem "dotenv-rails", groups: [ :development, :test ]
+
+# API clients
+gem "faraday", "~> 2.14"

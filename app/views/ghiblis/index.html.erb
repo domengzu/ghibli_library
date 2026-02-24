@@ -1,0 +1,13 @@
+<h1>Ghiblis#index</h1>
+
+<ul>
+    <% if @data.is_a?(Array) %>
+    <% @data.each do |film| %>
+    <li><%= link_to film["title"], ghibli_path(film["id"]) %></li>
+    <%= film["image"] %>
+    <% end %>
+    <% else %>
+    <p>No results. Check Rails logs for the API error.</p>
+    <% end %>
+    <%= @data.count %>
+</ul>
