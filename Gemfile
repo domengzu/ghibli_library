@@ -70,3 +70,5 @@ gem "dotenv-rails", groups: [ :development, :test ]
 
 # API clients
 gem "faraday", "~> 2.14"
+
+gem "tailwindcss-rails", "~> 4.4"
