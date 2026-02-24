@@ -1,0 +1,53 @@
+<div class="flex flex-wrap justify-center gap-6">
+    <% @data.each do |film| %>
+    <div class="card w-60 bg-base-100 shadow-xl">
+
+        <!-- 3D EFFECT ONLY HERE -->
+        <div class="hover-3d">
+            <%= image_tag film["image"],
+              alt: film["title"],
+              class: "w-full h-auto object-cover rounded-t-2xl",
+              loading: "lazy" if film["image"].present? %>
+
+            <!-- helper layers for 3D -->
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+            <div class="hover-3d-layer"></div>
+        </div>
+
+        <div class="card-body p-4">
+            <h2 class="card-title font-title text-base italic">
+                <%= film["title"] %>
+            </h2>
+            <div class="text-xs mt-0 font-button text-base-content/70">
+                <%= film["original_title_romanised"] %> | <%= film["original_title"] %>
+            </div>
+
+            <div class="mt-2 text-sm text-base-content/80 h-auto overflow-hidden font-button font-semibold">
+                <div class="badge badge-sm badge-outline badge-info mb-2">
+                    <%= film["director"] %>
+                </div>
+                <div class="badge badge-sm badge-outline badge-primary mb-2">
+                    Release: <%= film["release_date"] %>
+                </div>
+                <div class="badge badge-sm badge-warning mb-2">
+                    <%#= icon "star", library: "phosphor", variant: "fill", class: "size-3 inline items-center" %>
+                    rating:
+                    <%= film["rt_score"] %>
+                </div>
+                <div class="card-actions justify-end">
+                    <%= link_to "See more",
+                ghibli_path(film["id"]),
+                class: "btn btn-info btn-sm" %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <% end %>
+</div>

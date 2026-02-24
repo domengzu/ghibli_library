@@ -72,3 +72,5 @@ gem "dotenv-rails", groups: [ :development, :test ]
 gem "faraday", "~> 2.14"
 
 gem "tailwindcss-rails", "~> 4.4"
+
+gem "rails_icons", "~> 1.6"

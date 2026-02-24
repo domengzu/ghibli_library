@@ -1,13 +1,8 @@
-<h1>Ghiblis#index</h1>
+<div class="font-title text-center mb-6">
+    <h1 class="text-3xl font-bold">Welcome to the Ghibli Library</h1>
+    <p class="text-base-content/70">Explore the magical world of Studio Ghibli films. Click on any film to see more details.</p>
+</div>
 
-<ul>
-    <% if @data.is_a?(Array) %>
-    <% @data.each do |film| %>
-    <li><%= link_to film["title"], ghibli_path(film["id"]) %></li>
-    <%= film["image"] %>
-    <% end %>
-    <% else %>
-    <p>No results. Check Rails logs for the API error.</p>
-    <% end %>
-    <%= @data.count %>
-</ul>
+<div>
+    <%= render "film_list", locals: { data: @data } %>
+</div>

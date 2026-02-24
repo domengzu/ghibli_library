@@ -1,1 +1,14 @@
-<h3>Footer</h3>
+<div class="font-button text-xs text-gray-500 mt-4 p-8 border-t border-gray-100 flex justify-between items-center">
+    <div>
+        Made with ☕ and 💻 by <%= link_to "domengzu", "https://github.com/domengzu", target: "_blank", class: "text-blue-500 hover:text-blue-700" %>
+    </div>
+    <div>
+        &copy; <%= Time.now.year %> Ghibli Library. All rights reserved.
+    </div>
+    <div class="flex items-center gap-2">
+        <%= link_to "https://github.com/domengzu/ghibli_library", target: "_blank", class: "text-blue-500 hover:text-blue-700  font-semibold" do %>
+        <%= icon "github-logo", library: "phosphor", class: "size-5 inline" %>
+        GitHub Repository
+        <% end %>
+    </div>
+</div>

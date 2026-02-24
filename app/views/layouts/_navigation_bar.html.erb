@@ -1,14 +1,18 @@
-<h3>Navbar</h3>
-
-<!--
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Ghibli Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-
-            </div>
+<div class="font-button mb-4 p-4 text-center shadow-sm bg-base-100/70 border-base-content/10 backdrop-blur-md backdrop-saturate-150 top-0 left-0 sticky flex items-center justify-between gap-2 z-50 pr-12">
+    <div>
+        <%= image_tag "hayao-miyazaki.png", alt: "Ghibli Library Icon", class: "mx-auto size-14" %>
+    </div>
+    <div>
+        <%= link_to "Ghibli Library", root_path, class: "text-base-content hover:text-base-content/75 font-bold text-2xl" %>
+    </div>
+    <div data-controller="theme">
+        <button data-action="click->theme#toggle" class="btn btn-ghost btn-sm rounded-full">
+            <span data-theme-target="sun" class="flex items-center gap-1 hidden">
+                <%= icon "sun-dim", library: "phosphor", class: "size-5 inline" %>
+            </span>
+            <span data-theme-target="moon" class="flex items-center gap-1">
+                <%= icon "moon", library: "phosphor", class: "size-6 inline" %>
+            </span>
+        </button>
+    </div>
+</div>
