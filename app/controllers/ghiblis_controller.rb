@@ -5,6 +5,7 @@ class GhiblisController < ApplicationController
 
   def show
     @film = GhibliapiClient.new.get_film(params[:id])
+    @film = JSON.parse(@film.body) if @film
     render_not_found unless @film
   end
 

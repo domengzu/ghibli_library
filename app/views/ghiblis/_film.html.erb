@@ -1,0 +1,55 @@
+<div class="mx-auto max-w-5xl px-4 mb-12">
+    <h2 class="text-2xl font-bold text-center font-button">Film Information</h2>
+    <p class="text-center text-gray-600 italic font-body">Explore the magical world of Studio Ghibli films</p>
+</div>
+<div class="card lg:card-side bg-base-100 shadow-xl rounded-2xl overflow-hidden">
+
+    <!-- Poster -->
+    <figure class="lg:w-72 flex-shrink-0">
+        <%= image_tag @film["image"],
+        class: "w-full h-full object-cover" %>
+    </figure>
+
+    <!-- Content -->
+    <div class="card-body space-y-4">
+
+        <!-- Title Section -->
+        <div>
+            <h2 class="card-title font-title text-3xl lg:text-4xl font-bold leading-tight">
+                <%= @film["title"] %>
+            </h2>
+
+            <p class="text-base-content/60 italic">
+                <%= @film["original_title"] %> | <%= @film["original_title_romanised"] %>
+            </p>
+        </div>
+
+        <!-- Metadata -->
+        <div class="flex flex-wrap gap-2 text-sm font-body">
+            <div class="badge badge-outline font-semibold">
+                <%= icon "film-slate", library: "phosphor", class: "size-4 m-0 p-0 inline" %>
+                <%= @film["director"] %>
+            </div>
+            <div class="badge badge-outline font-semibold">
+                <%= icon "calendar", library: "phosphor", class: "size-4 m-0 p-0 inline" %>
+                <%= @film["release_date"] %>
+            </div>
+            <div class="badge badge-outline font-semibold">
+                <%= icon "star", library: "phosphor", variant: "fill", class: "size-4 m-0 p-0 inline" %>
+                <%= @film["rt_score"] %>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <p class="font-button text-base leading-relaxed text-justify text-base-content/80 break-words">
+            <%= @film["description"] %>
+        </p>
+
+        <!-- Actions -->
+        <div class="card-actions justify-end pt-4">
+            <%= link_to "Back", :back,
+          class: "btn btn-soft btn-primary btn-sm lg:btn-md w-[25%]" %>
+        </div>
+
+    </div>
+</div>

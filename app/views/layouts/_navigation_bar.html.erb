@@ -1,18 +1,15 @@
-<div class="font-button mb-4 p-4 text-center shadow-sm bg-base-100/70 border-base-content/10 backdrop-blur-md backdrop-saturate-150 top-0 left-0 sticky flex items-center justify-between gap-2 z-50 pr-12">
-    <div>
-        <%= image_tag "hayao-miyazaki.png", alt: "Ghibli Library Icon", class: "mx-auto size-14" %>
+<div class="navbar bg-base-100 shadow-sm px-4">
+    <div class="navbar-start">
+        <%= image_tag "hayao-miyazaki.png", alt: "Ghibli Library Icon", class: "size-14" %>
     </div>
-    <div>
-        <%= link_to "Ghibli Library", root_path, class: "text-base-content hover:text-base-content/75 font-bold text-2xl" %>
+    <div class="navbar-center">
+        <%= link_to "Ghibli Library", root_path, class: "text-xl font-button font-semibold" %>
     </div>
-    <div data-controller="theme">
-        <button data-action="click->theme#toggle" class="btn btn-ghost btn-sm rounded-full">
-            <span data-theme-target="sun" class="flex items-center gap-1 hidden">
-                <%= icon "sun-dim", library: "phosphor", class: "size-5 inline" %>
-            </span>
-            <span data-theme-target="moon" class="flex items-center gap-1">
-                <%= icon "moon", library: "phosphor", class: "size-6 inline" %>
-            </span>
-        </button>
+    <div class="navbar-end">
+        <label class="swap swap-rotate" data-controller="theme">
+            <input type="checkbox" class="theme-controller" value="dark" />
+            <%= icon "sun", library: "phosphor", variant: "bold", class: "size-8 swap-off" %>
+            <%= icon "moon", library: "phosphor", variant: "bold", class: "size-8 swap-on" %>
+        </label>
     </div>
 </div>
