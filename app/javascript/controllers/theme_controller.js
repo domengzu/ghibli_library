@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="theme"
 export default class extends Controller {
-  static targets = [ "sun", "moon" ]
+  static targets = [ "checkbox" ]
   static values = {
     light: {type: String, default: "light"},
     dark: {type: String, default: "dark"},
@@ -23,7 +23,8 @@ export default class extends Controller {
     }
   }
 
-  toggle() {
+  toggle(e) {
+    e.preventDefault();
     const currentTheme = this.currentTheme();
     const newTheme = currentTheme === this.lightValue ? this.darkValue : this.lightValue;
     this.setTheme(newTheme);
@@ -33,13 +34,8 @@ export default class extends Controller {
   setTheme(theme, save = true) {
     document.documentElement.setAttribute("data-theme", theme);
     
-    if (theme === this.darkValue) {
-      this.sunTarget.classList.remove("hidden");
-      this.moonTarget.classList.add("hidden");
-    } else {
-      this.sunTarget.classList.add("hidden");
-      this.moonTarget.classList.remove("hidden");
-    }
+    const isDark = theme === this.darkValue;
+    this.checkboxTarget.checked = isDark;
     
     if (save) {
       localStorage.setItem(this.storageKeyValue, theme);

@@ -6,10 +6,14 @@
         <%= link_to "Ghibli Library", root_path, class: "text-xl font-button font-semibold" %>
     </div>
     <div class="navbar-end">
-        <label class="swap swap-rotate" data-controller="theme">
-            <input type="checkbox" class="theme-controller" value="dark" />
-            <%= icon "sun", library: "phosphor", variant: "bold", class: "size-8 swap-off" %>
-            <%= icon "moon", library: "phosphor", variant: "bold", class: "size-8 swap-on" %>
+        <label class="btn btn-ghost btn-circle swap swap-rotate" data-controller="theme" data-action="click->theme#toggle">
+            <input type="checkbox" data-theme-target="checkbox" class="hidden" />
+            <span class="swap-on">
+                <%= icon "sun", library: "phosphor", variant: "bold", class: "size-8" %>
+            </span>
+            <span class="swap-off">
+                <%= icon "moon", library: "phosphor", variant: "bold", class: "size-8" %>
+            </span>
         </label>
     </div>
 </div>
