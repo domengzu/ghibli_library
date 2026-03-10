@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get "ghiblis/index"
-  get "ghiblis/show"
-  get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,8 +10,13 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "ghiblis#index"
+  authenticated :user do
+    resources :pokemons, only: [ :index, :show ]
+  end
 
-  resources :pokemons, only: [ :index, :show ]
+  devise_for :users
+  get "home/index"
+
+  root "ghiblis#index"
   resources :ghiblis, only: [ :index, :show ]
 end
