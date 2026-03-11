@@ -1,0 +1,13 @@
+<div>
+  <h2 class="text-2xl font-bold mb-4">Add a Comment</h2>
+  <%= form_with model: @comment, url: ghibli_comments_path(@comment.ghibli_movie_id || params[:id] || params[:ghibli_id]) do |form| %>
+  <div class="mb-4">
+    <%= form.label :body, "Your Comment", class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_area :body, rows: 4, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm" %>
+  </div>
+  <%= form.hidden_field :ghibli_movie_id, value: @comment.ghibli_movie_id || params[:id] || params[:ghibli_id] %>
+  <div class="actions">
+    <%= form.submit "Post Comment", class: "btn btn-success btn-sm" %>
+  </div>
+  <% end %>
+</div>

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get "home/index"
 
   root "ghiblis#index"
-  resources :ghiblis, only: [ :index, :show ]
+  resources :ghiblis, only: [ :index, :show ] do
+    resources :comments, only: [ :create, :edit, :update, :destroy ]
+  end
 end
