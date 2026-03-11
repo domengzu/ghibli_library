@@ -1,15 +1,12 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-temporary>
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="fixed top-5 right-5 z-50 flex flex-col items-end gap-2" data-turbo-temporary>
+  <% resource.errors.full_messages.each do |message| %>
+  <div data-controller="flash-timeout" data-flash-timeout-duration-value="3000" class="inline-flex w-fit max-w-[90vw] bg-error text-white px-4 py-3 rounded-lg shadow-lg flex items-start gap-2 font-button justify-between">
+    <p class="break-words"><%= message %></p>
+    <button data-action="click->flash-timeout#close" class="cursor-pointer shrink-0 ml-1">
+      <%= icon "x-circle", library: "phosphor", class: "size-6 inline" %>
+    </button>
   </div>
+  <% end %>
+</div>
 <% end %>
