@@ -12,8 +12,13 @@
   <!-- Right side: Sign in/up and theme toggle -->
   <div class="navbar-end gap-2 md:gap-4 drawer flex items-center justify-end">
     <div class="hidden md:flex gap-2 align-items-center">
+      <% if user_signed_in? %>
+      <%= link_to "Profile", edit_user_registration_path, class: "btn btn-ghost btn-sm transition" %>
+      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-ghost btn-sm transition" %>
+      <% else %>
       <%= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-outline btn-sm transition" %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info btn-outline btn-sm transition" %>
+      <% end %>
     </div>
 
     <!-- Theme Toggle -->
@@ -38,8 +43,14 @@
       <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
       <ul class="menu bg-base-200 min-h-full w-80 p-4">
         <!-- Sidebar content here -->
+        <% if user_signed_in? %>
+        <%= link_to "Profile", edit_user_registration_path, class: "btn btn-ghost btn-sm transition" %>
+
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-ghost btn-sm transition" %>
+        <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-outline btn-sm transition" %>
         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info btn-outline btn-sm transition" %>
+        <% end %>
       </ul>
     </div>
   </div>
