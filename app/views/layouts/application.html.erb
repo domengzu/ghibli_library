@@ -26,9 +26,12 @@
 
 <body data-controller="nav-height">
   <% if devise_controller? %>
+  <%= render "layouts/navigation_bar" %>
+  <%= render "shared/toast"%>
   <%= yield %>
   <% else %>
   <%= render "layouts/navigation_bar" %>
+  <%= render "shared/toast"%>
   <%= yield %>
   <%= render "layouts/footer" %>
   <% end %>

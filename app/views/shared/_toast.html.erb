@@ -1,0 +1,22 @@
+<% flash.each do |type, message| %>
+<% bg_color = type === "notice" ? "bg-success" : "bg-error"%>
+
+<div data-controller="flash-timeout" data-flash-timeout-duration-value="2500" class="fixed top-5 right-5 z-50 px-4 py-3 rounded-lg <%= bg_color %> shadow-lg flex items-center font-button">
+  <% if flash[:notice].present? %>
+  <p class="text-white">
+    <%= flash[:notice] %>
+  </p>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+  <p class="text-white">
+    <%= flash[:alert] %>
+  </p>
+  <% end %>
+
+  <button data-action="click->flash-timeout#close" class="text-white cursor-pointer ml-2">
+    <%= icon "x-circle", library: "phosphor", class: "size-8 inline"%>
+  </button>
+</div>
+
+<% end %>
