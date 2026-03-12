@@ -29,11 +29,13 @@
   <%= render "layouts/navigation_bar" %>
   <%= render "shared/toast"%>
   <%= yield %>
+  <%= render "shared/dialog" %>
   <% else %>
   <%= render "layouts/navigation_bar" %>
   <%= render "shared/toast"%>
   <%= yield %>
   <%= render "layouts/footer" %>
+  <%= render "shared/dialog" %>
   <% end %>
 </body>
 
