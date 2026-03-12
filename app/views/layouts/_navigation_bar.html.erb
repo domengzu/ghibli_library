@@ -14,7 +14,7 @@
     <div class="hidden md:flex gap-2 align-items-center">
       <% if user_signed_in? %>
       <%= link_to "Profile", edit_user_registration_path, class: "btn btn-ghost btn-sm transition" %>
-      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-ghost btn-sm transition" %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure you want to log out?" }, class: "btn btn-ghost btn-sm transition", form: { class: "inline" } %>
       <% else %>
       <%= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-outline btn-sm transition" %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info btn-outline btn-sm transition" %>
@@ -45,8 +45,7 @@
         <!-- Sidebar content here -->
         <% if user_signed_in? %>
         <%= link_to "Profile", edit_user_registration_path, class: "btn btn-ghost btn-sm transition" %>
-
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-ghost btn-sm transition" %>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure you want to log out?" }, class: "btn btn-ghost btn-sm transition", form: { class: "inline" } %>
         <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-outline btn-sm transition" %>
         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info btn-outline btn-sm transition" %>

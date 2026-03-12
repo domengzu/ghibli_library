@@ -3,7 +3,7 @@
 
 <% bg_color = type.to_s === "notice" ? "bg-success" : "bg-error"%>
 
-<div data-controller="flash-timeout" data-flash-timeout-duration-value="2500" class="fixed top-5 right-5 z-50 px-4 py-3 rounded-lg <%= bg_color %> shadow-lg flex justify-between items-center font-button">
+<div data-controller="flash-timeout" data-flash-timeout-duration-value="2500" class="fixed top-20 right-5 z-50 px-4 py-3 rounded-lg <%= bg_color %> shadow-lg flex justify-between items-center font-button">
   <p class="text-white"><%= message %></p>
   <button data-action="click->flash-timeout#close" class="text-white cursor-pointer">
     <%= icon "x-circle", library: "phosphor", class: "size-6 inline" %>
