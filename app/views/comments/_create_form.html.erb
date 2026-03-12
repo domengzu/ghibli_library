@@ -1,13 +1,31 @@
-<div>
-  <h2 class="text-2xl font-bold mb-4">Add a Comment</h2>
-  <%= form_with model: @comment, url: ghibli_comments_path(@comment.ghibli_movie_id || params[:id] || params[:ghibli_id]) do |form| %>
-  <div class="mb-4">
-    <%= form.label :body, "Your Comment", class: "block text-sm font-medium text-gray-700" %>
-    <%= form.text_area :body, rows: 4, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm" %>
+<div class="w-full md:w-[50%] font-buttonflex flex flex-col justify-between">
+  <div class="overflow-y-auto max-h-75">
+    <% if @comments.blank? %>
+    <div class="p-4 w-full md:mt-24">
+      <p class="text-gray-500 text-center italic">No comments yet. Be the first to comment!</p>
+    </div>
+    <% else %>
+    <% @comments.each do |comment| %>
+    <div class="p-2 mb-2 border rounded">
+      <p class="text-sm"><%= comment.body %></p>
+      <p class="text-xs text-gray-500 mt-2">
+        Posted on <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+      </p>
+    </div>
+    <% end %>
+    <% end %>
   </div>
-  <%= form.hidden_field :ghibli_movie_id, value: @comment.ghibli_movie_id || params[:id] || params[:ghibli_id] %>
-  <div class="actions">
-    <%= form.submit "Post Comment", class: "btn btn-success btn-sm" %>
+  <div>
+    <h2 class="text-2xl font-bold">Drop your comment here...</h2>
+    <%= form_with model: @comment, url: ghibli_comments_path(@comment.ghibli_movie_id || params[:id] || params[:ghibli_id]) do |form| %>
+    <div class="mb-4 gap-2">
+      <%= form.label :body, "Your Comment", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :body, rows: 4, class: "p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm" %>
+    </div>
+    <%= form.hidden_field :ghibli_movie_id, value: @comment.ghibli_movie_id || params[:id] || params[:ghibli_id] %>
+    <div class="actions">
+      <%= form.submit "Post Comment", class: "btn btn-success btn-sm" %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

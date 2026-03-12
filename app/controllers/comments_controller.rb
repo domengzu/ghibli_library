@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       @film = GhibliapiClient.new.get_film(params[:ghibli_id])
       @film = JSON.parse(@film.body) if @film
       @comments = Comment.where(ghibli_movie_id: params[:ghibli_id]).order(created_at: :desc).includes(:user)
+      flash.now[:alert] = "Failed to create comment."
       render "ghiblis/show", status: :unprocessable_entity
     end
   end

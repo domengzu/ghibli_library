@@ -1,18 +1,11 @@
-<div class="mx-auto max-w-5xl px-4 mb-12">
-  <h2 class="text-2xl font-bold text-center font-button">Film Information</h2>
-  <p class="text-center text-gray-600 italic font-body">Explore the magical world of Studio Ghibli films</p>
-</div>
-<div class="card lg:card-side bg-base-100 shadow-xl rounded-2xl overflow-hidden">
-
+<div class="card lg:card-side bg-base-100 shadow-xl rounded-2xl w-full md:w-[50%] border border-gray-200">
   <!-- Poster -->
   <figure class="lg:w-72 flex-shrink-0">
     <%= image_tag @film["image"],
         class: "w-full h-full object-cover" %>
   </figure>
-
   <!-- Content -->
   <div class="card-body space-y-4">
-
     <!-- Title Section -->
     <div>
       <h2 class="card-title font-title text-3xl lg:text-4xl font-bold leading-tight">
@@ -47,9 +40,7 @@
 
     <!-- Actions -->
     <div class="card-actions justify-end pt-4">
-      <%= link_to "Back", root_path,
-          class: "btn btn-soft btn-primary btn-sm lg:btn-md w-[25%]" %>
+      <%= link_to "Back", root_path, class: "btn btn-soft btn-primary btn-sm lg:btn-md w-[25%]" %>
     </div>
-
   </div>
 </div>
