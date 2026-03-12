@@ -13,8 +13,14 @@
   <div class="navbar-end gap-2 md:gap-4 drawer flex items-center justify-end">
     <div class="hidden md:flex gap-2 align-items-center">
       <% if user_signed_in? %>
-      <%= link_to "Profile", edit_user_registration_path, class: "btn btn-ghost btn-sm transition" %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure you want to log out?" }, class: "btn btn-ghost btn-sm transition", form: { class: "inline" } %>
+      <%= link_to edit_user_registration_path, class: "btn btn-ghost btn-sm transition" do %>
+      <%= icon "user", library: "phosphor", variant: "bold", class: "size-4" %>
+      <span>Profile</span>
+      <% end %>
+      <%= button_to destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure you want to log out?" }, class: "btn btn-outline btn-error btn-sm hover:text-white hover:bg-red-500 transition", form: { class: "inline" } do %>
+      <%= icon "sign-out", library: "phosphor", variant: "bold", class: "size-4" %>
+      <span>Log out</span>
+      <% end %>
       <% else %>
       <%= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-outline btn-sm transition" %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info btn-outline btn-sm transition" %>
