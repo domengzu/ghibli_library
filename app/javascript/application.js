@@ -8,7 +8,7 @@ Turbo.config.forms.confirm = (message, element) => {
 
   if (!dialog) {
     console.error("Confirm modal not found in DOM");
-    return Promise.resolve(confirm(message)); // Fallback to native confirm
+    return Promise.resolve(confirm(message));
   }
 
   const messageElement = dialog.querySelector('[data-message]');

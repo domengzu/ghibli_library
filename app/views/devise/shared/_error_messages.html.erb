@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-<div class="fixed top-5 right-5 z-50 flex flex-col items-end gap-2" data-turbo-temporary>
+<div class="fixed top-20 right-5 z-50 flex flex-col items-end gap-2">
   <% resource.errors.full_messages.each do |message| %>
   <div data-controller="flash-timeout" data-flash-timeout-duration-value="3000" class="inline-flex w-fit max-w-[90vw] bg-error text-white px-4 py-3 rounded-lg shadow-lg flex items-start gap-2 font-button justify-between">
     <p class="break-words"><%= message %></p>
